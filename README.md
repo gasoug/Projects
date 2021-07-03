@@ -1,2 +1,2 @@
 # Projects
- Repositório criado para pequenos projetos em JavaScript, Java, Vue.js e ReactJS, possivelmente em outras linguagens.
+ Repositório criado para pequenos projetos em Java, JavaScript, Vue e ReactJS, possivelmente em outras linguagens.
