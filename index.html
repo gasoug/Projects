@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            color:rgb(45, 45, 182);
+            background-color: rgba(0, 0, 0, 0.534);
+        }
+        .tab{
+            flex-direction: row;
+            box-shadow: 2px 2px 5px black;
+            min-height: 300px;
+            padding: 15px;
+            margin-top: 10px;
+        }
+        #number{
+            width:40px;
+        }
+        #tabuada{
+           margin-top: 15px;
+        }
+    </style>
+    <script>
+         
+        function mult(){
+            var tabuada = document.getElementById("tabuada")
+            var num = document.getElementById("number").value
+            var res = ''
+                if(num > 0){
+                for(var i=0; i <= 10; i++){
+                res += num + " x " + i + " = " + num * i + "<br/>"
+                tabuada.innerHTML = res 
+                }
+            }               
+            }     
+    </script>
+</head>
+<body>
+    <div class="tab">
+        <h2>Tabuadas</h2>
+        <p>Digite um número para exibir a tambuada: <input type="text" id="number"><input type="button" value="Mostrar" onclick="mult()"></p>
+        <div id="tabuada">
+        </div>
+    </div>
+    
+</body>
+</html>
