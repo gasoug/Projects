@@ -1,2 +1,2 @@
 # HTML/CSS/JS
-Alguna exemplos
+Alguns exemplos
