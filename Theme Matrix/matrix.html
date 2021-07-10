@@ -22,7 +22,8 @@
         const ctx = cnv.getContext("2d")
         const w = cnv.width
         const h = cnv.height
-        function random(min,max){//vai retornar os lugares aleatorios do canvas
+        //vai retornar os lugares aleatórios do canvas
+        function random(min,max){
             return Math.floor(Math.random() * (max - min)) + min
         }
         const tamanhofonte = 15
@@ -40,8 +41,10 @@
             //letras, números
             ctx.fillStyle = "#0F0"
             ctx.font = tamanhofonte + 'px'
-            for(let i=0; i < colunas; i++){//ENQUANTO O I FOR MENOR QUE O NUMERO DE COLUNAS AUTO INTEGRA
-                const texto = String.fromCharCode(0x30A0 + random(0, 96))//PEGANDO O CARACTER MUDAR O "30A0" MUDA O ALFABETO
+            //ENQUANTO O I FOR MENOR QUE O NUMERO DE COLUNAS AUTO INTEGRA
+            for(let i=0; i < colunas; i++){
+                //PEGANDO O CARACTER MUDAR O "30A0" MUDA O ALFABETO
+                const texto = String.fromCharCode(0x30A0 + random(0, 96))
                 ctx.fillText(texto, i*tamanhofonte, caracteres[i] * tamanhofonte)
                 if(caracteres[i]*tamanhofonte > h && Math.random()>0.99){
                 caracteres[i]= 0
@@ -49,7 +52,8 @@
             caracteres[i]++
         }
     }
-        setInterval(desenhar, 40)//VAI FICAR ATUALIZANDO A FUNÇÃO A CADA 40 MILISEGUNDOS
+        //VAI FICAR ATUALIZANDO A FUNÇÃO A CADA 40 MILISEGUNDOS
+        setInterval(desenhar, 40)
     </script>
 </body>
 </html>
