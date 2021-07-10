@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrix</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+   
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="1365" height="620"></canvas>
+    <script>
+        const cnv = document.getElementById("canvas")
+        const ctx = cnv.getContext("2d")
+        const w = cnv.width
+        const h = cnv.height
+        function random(min,max){//vai retornar os lugares aleatorios do canvas
+            return Math.floor(Math.random() * (max - min)) + min
+        }
+        const tamanhofonte = 15
+        const colunas = w / tamanhofonte
+        const caracteres = []
+
+        for(let x = 0; x < colunas; x++){
+            caracteres[x] = h
+        }
+        //DESENHAR O FUNDO E NÚMEROS
+        function desenhar(){
+            //Fundo    
+            ctx.fillStyle = "#0002"
+            ctx.fillRect(0,0,w,h)
+            //letras, números
+            ctx.fillStyle = "#0F0"
+            ctx.font = tamanhofonte + 'px'
+            for(let i=0; i < colunas; i++){//ENQUANTO O I FOR MENOR QUE O NUMERO DE COLUNAS AUTO INTEGRA
+                const texto = String.fromCharCode(0x30A0 + random(0, 96))//PEGANDO O CARACTER MUDAR O "30A0" MUDA O ALFABETO
+                ctx.fillText(texto, i*tamanhofonte, caracteres[i] * tamanhofonte)
+                if(caracteres[i]*tamanhofonte > h && Math.random()>0.99){
+                caracteres[i]= 0
+            }
+            caracteres[i]++
+        }
+    }
+        setInterval(desenhar, 40)//VAI FICAR ATUALIZANDO A FUNÇÃO A CADA 40 MILISEGUNDOS
+    </script>
+</body>
+</html>
