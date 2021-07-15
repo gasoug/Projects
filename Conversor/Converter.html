@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            font-family: sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .content{
+            margin: 10px auto 0 ;
+            width: 50%;
+            min-width: 400px;
+            padding: 10px 0;
+            text-align: center;
+            background-color: #464646;
+            border-radius: 5px 5px 0 0;
+            color: white;
+        }
+        .content .num, .content .num2{
+            margin-top: 5px;
+        }
+        .num{
+            width: 210px;
+            min-width: 55%;
+        }
+        .num2{
+            width: 35px;
+            margin: 0 0 0 5px;
+        }
+        #rng{
+            width: 180px;
+            margin-top: 5px;
+        }
+        .valores{
+            text-align: center;
+            background-color: #262626;
+            color: white;
+            width: 50%;
+            min-width: 400px;
+            height: 140px;
+            border-radius: 0 0 10px 10px;
+        }
+        .valores > p{
+            margin: 10px auto;
+        }
+        #total,#total2{
+            color: white;
+            background-color: #161616;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h2>Calcular Porcentagem</h2>
+     $ <input type="text" id="n1" class="num"><br>
+     % <input type="range" name="" id="rng" min="1" max="100" step="0.01" onchange="load()"><input type="text" id="n2" class="num2"><br>
+    <input type="button" value="Calcular" onclick="somar()">
+    </div>
+    <div class="valores">
+        <p>Valor da porcentagem<p id="total"> </p></p>
+        <p>Valor Total</p><p id="total2"> </p>
+    </div>
+    <script>
+        function load(){
+            var rng = document.getElementById("rng").value
+            var n2 = document.getElementById("n2")
+                n2.value = rng
+        }
+        function somar(){
+            var num1 = parseFloat(document.getElementById("n1").value)
+            var num2 = parseFloat(document.getElementById("n2").value)
+            var som =  parseFloat((num1 * (num2/100)))
+            var som2 = som + num1
+            document.getElementById("total").innerHTML = (som).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})
+            document.getElementById("total2").innerHTML = (som2).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})
+        }
+    </script>
+</body>
+</html>
