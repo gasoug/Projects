@@ -12,11 +12,12 @@
             box-sizing: border-box;
             font-family: sans-serif;
         }
+     
    
     </style>
 </head>
 <body>
-    <canvas id="canvas" width="1365" height="620"></canvas>
+    <canvas id="canvas" width="1360" height="630"></canvas>
     <script>
         const cnv = document.getElementById("canvas")
         const ctx = cnv.getContext("2d")
@@ -36,7 +37,7 @@
         //DESENHAR O FUNDO E NÚMEROS
         function desenhar(){
             //Fundo    
-            ctx.fillStyle = "#0002"
+            ctx.fillStyle = "#0001"
             ctx.fillRect(0,0,w,h)
             //letras, números
             ctx.fillStyle = "#0F0"
@@ -52,8 +53,8 @@
             caracteres[i]++
         }
     }
-        //VAI FICAR ATUALIZANDO A FUNÇÃO A CADA 40 MILISEGUNDOS
-        setInterval(desenhar, 40)
+        //VAI FICAR ATUALIZANDO A FUNÇÃO A CADA X MILISEGUNDOS
+        setInterval(desenhar, 35)
     </script>
 </body>
 </html>
