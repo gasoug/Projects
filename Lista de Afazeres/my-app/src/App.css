@@ -1,0 +1,35 @@
+.App {
+  width: 460px;
+  font-family: sans-serif;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.26);
+  
+}
+.App ul li{
+  margin: 10px auto;
+  list-style: none;
+  color: white;
+  font-style: italic;
+  background-color: rgba(255, 255, 255, 0.089);
+  border-radius: 0 8px 8px 0;
+}
+.App ul{
+  background-color: rgba(255, 255, 255, 0.075);
+}
+.btn{
+  float: right;
+  margin-left: 10px;
+  width: 20px;
+  background-color: #00a2ff93;
+  border-radius: 0 8px 8px 0;
+  color: white;
+  cursor: pointer;
+}
+.btn:hover{
+  background-color: #7ec5ff;
+}
