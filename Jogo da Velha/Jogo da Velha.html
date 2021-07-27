@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Velha</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            text-align: center;
+            font-family: sans-serif;
+        }
+        h2{
+            margin: 10px auto;
+        }
+        #player{
+            margin: 5px auto;
+        }
+        .game{
+            margin: 0 auto;
+            border-radius: 8px;
+            text-align: center;
+            padding: 20px;
+            width: 400px;
+            height: 400px;
+            background-color: #232323;
+            color: white;
+            display: grid;
+            grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+        }
+        .game > div{
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.288);
+            height: 130px;
+            width: 130px;
+            font-size: 60px;
+        }
+        #play{
+            margin: 10px 0;
+            width: 60px;
+            height: 60px;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>JOGO DA VELHA</h2>
+    <p id="placar"></p>
+    <p id="player"></p>
+    <div class="game" id="jogo">
+    </div>
+    <button id="play" onclick="jogo_da_velha.start()">Jogar</button>
+    <script src="jogo-da-velha.js"></script>
+    <script>
+        jogo_da_velha.init(document.querySelector('.game'))
+        jogo_da_velha.start()
+    </script>
+</body>
+</html>
