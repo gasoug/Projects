@@ -27,7 +27,7 @@ init: function(cont){
 },  
 start: function(){
     this.tabuleiro.fill('')
-    let placar = document.getElementById('placar').innerHTML = 'PLACAR: <strong style="color:blue;">Player O - '+'<strong style="color:black">' + this.placarO + ' | <strong style="color:purple;"> Player X - '+'<strong style="color:black">' + this.placarX
+    let placar = document.getElementById('placar').innerHTML = '<p><strong>PLACAR</strong></p><hr size="2" noshade="noshade"/><p><strong style="color:blue;">Player O '+'<strong style="color:black"> - ' + this.placarO + ' | <strong style="color:purple;"> Player X '+'<strong style="color:black"> - ' + this.placarX
     let joga = document.getElementById('player').innerHTML = ' '
     this.draw()
     this.gameover = false    
@@ -42,7 +42,7 @@ jogadas: function(position){
 
        let vitoria_indice = this.win ( this.simbolos.jogador [ this.simbolos.turno] )
        if(vitoria_indice >= 0 ){
-        joga = document.getElementById('player').innerHTML = '<p style="color:green;">O Player ' + this.simbolos.jogador [ this.simbolos.turno ] + ' foi o VENCEDOR! Clique em JOGAR para iniciar um novo jogo.</p>'
+        joga = document.getElementById('player').innerHTML = '<h3 style="color:green;">O Player ' + this.simbolos.jogador [ this.simbolos.turno ] + ' foi o VENCEDOR!</h3><h3>Clique em <strong style="color:green;"> JOGAR </strong> para iniciar um novo jogo.</h3>'
         this.end_game()
        } else {
            this.simbolos.trocar()
@@ -63,13 +63,15 @@ win: function(simbolo){
         this.tabuleiro [ this.vitoria[i][1] ] == simbolo &&   
         this.tabuleiro [ this.vitoria[i][2] ] == simbolo){
             //console.log(simbolo)
-            if(simbolo == 'X'){
-                this.placarX++ 
-            }
-            if(simbolo == 'O'){
-                this.placarO++ 
-            } 
-            //console.log("Placar: Player O - " + this.placarO + " | Player X -" + this.placarX)
+           
+                if(simbolo == 'X'){
+                   this.placarX++
+                }
+                if(simbolo == 'O'){
+                   this.placarO++
+                }
+            
+            console.log("Placar: Player O - " + this.placarO + " | Player X - " + this.placarX)
             return i     
         }   
     } 

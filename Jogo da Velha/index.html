@@ -10,14 +10,15 @@
 </head>
 <body>
     <h2>JOGO DA VELHA</h2>
-    <p id="placar"></p>
+    <div class="jogar">
+        <img src="img/Muriel.png" class="img" id="muri">
+        <p id="placar"></p>
+        <img src="img/Eustácio.png" class="img">
+    </div>
     <p id="player"></p>
     <div class="game" id="jogo">
     </div>
-    <img src="img/Muriel.png" class="img" id="muri">
     <button id="play" onclick="jogo_da_velha.start()">Jogar</button>
-    <img src="img/Eustácio.png" class="img">
-    <script src="jogo-da-velha.js"></script>
     <script>
         jogo_da_velha.init(document.querySelector('.game'))
         jogo_da_velha.start()
