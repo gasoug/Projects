@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="msg">Seja Bem Vindo!</p>
+    <script>
+        // Write JavaScript here 
+        function mostrar(e){
+            const text = e.innerHTML.split('')
+            e.innerHTML = ''
+            text.forEach((word, i) => {
+                setTimeout(() => e.innerHTML += word
+                , 75 * i)
+            });
+        }
+        const msg = document.getElementById('msg')
+        mostrar(msg)
+            /*const msg = document.getElementById('msg')
+        mostrar(msg)
+        function mostrar(e){
+            const text = ['Seja',' ','bem',' ','vindo!']
+            //e.innerHTML = ''
+            text.forEach((word, i) => {
+                setTimeout(() => e.innerHTML = word
+                , 800 * i)
+            });
+        }
+        const msg = document.getElementById('msg')
+        mostrar(msg)*/
+    
+    </script>
+</body>
+</html>

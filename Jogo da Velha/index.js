@@ -54,7 +54,7 @@ jogadas: function(position){
 },
 
 end_game: function(){
-    this.gameover = true    
+    this.gameover = true   
 },
 
 win: function(simbolo){
@@ -63,14 +63,12 @@ win: function(simbolo){
         this.tabuleiro [ this.vitoria[i][1] ] == simbolo &&   
         this.tabuleiro [ this.vitoria[i][2] ] == simbolo){
             //console.log(simbolo)
-           
                 if(simbolo == 'X'){
                    this.placarX++
                 }
                 if(simbolo == 'O'){
                    this.placarO++
                 }
-            
             console.log("Placar: Player O - " + this.placarO + " | Player X - " + this.placarX)
             return i     
         }   
@@ -82,7 +80,7 @@ draw: function(){
     let content = ''
     for(i in this.tabuleiro){
         content += '<div onclick="jogo_da_velha.jogadas(' + i + ')">' + this.tabuleiro[i] + '</div>'
-    }
+}
     this.container.innerHTML = content   
 }    
 }
