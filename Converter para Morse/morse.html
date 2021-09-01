@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300&display=swap" rel="stylesheet">
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            
+        }
+        body{
+            width: 100%;
+            min-width: 320px;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Montserrat', sans-serif;
+            background-image: linear-gradient(rgb(75, 75, 75),rgb(200,200,200));
+            background-repeat: no-repeat;
+        }
+        main{
+            position: absolute;
+            left: 50%;
+            top: 35%;
+            transform: translate(-50%,-70%);
+            min-width: 230px;
+            text-align: center;
+        }
+        button{
+            cursor: pointer;
+        }
+        #txt{
+            width: 300px;
+        }
+
+    </style>
+    <title>Morse</title>
+</head>
+<body>
+    <main>
+        <h3>Converter texto para Código Morse</h3>
+        <br>
+        <input type="text" placeholder="Digite algo" id="txt"><br>
+        <button onclick="init()">Converter</button>
+        <h2 id="show"></h2>
+    </main>
+<script>
+    function init(){
+        const codigo = {'a': '._' , 'b': '_...' , 'c': '_._.' , 'd': '_..' , 'e': '.' , 'f': '.._.' , 'g': '__.' , 'h': '....' , 'i': '..' , 'j': '.___' , 'k': '_._' , 'l': '._..' , 'm': '__' , 'n': '_.' , 'o': '___' , 'p': '.__.' , 'q': '__._' , 'r': '._.' , 's': '...' , 't': '_' , 'u': '.._' , 'v': '..._' , 'w': '.__' , 'x': '_.._' , 'y': '_.__' , 'z': '__..'}
+        const morse = []
+        const word = document.getElementById('txt').value.split('')
+            for (i in word){    
+            morse.push(codigo[word[i]])
+            }
+            const mostrar = document.getElementById('show').innerHTML = morse.join(' ')
+            console.log(word.join(' ') + ' ' + morse.join(' '))
+            //alert(morse.join(' '))
+    }
+</script>    
+</body>
+</html>
