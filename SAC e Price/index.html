@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            text-align: center;
+            background-image: linear-gradient(#a7a5a5, #ffffff);
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 100%;
+            color: rgb(0, 0, 0);
+        }
+        .valores{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+    
+        .valores > input{
+            margin: 5px auto;
+        }
+        table, th, td {
+            border: 1px solid #000000;
+            padding: 2px;
+            height: 100%;
+            width: 8vh;
+            font-size: 12px;
+        }
+        th{
+            background-color: #ffffff;
+        }
+        td{
+            background-color: #000000;
+            color: #ffffff;
+        }
+    </style>
+    <title>Modelos SAC e Price</title>
+</head>
+<body>
+    <div class="valores">
+        <h2>Simular financiamento</h2>
+        <input type="text" placeholder="Valor do financiamento" id="valor">
+        <input type="text" placeholder="Quantidade de Parcelas" id="parce">
+        <input type="text" placeholder="Porcentagem a.m" id="prc">
+        <input type="button" value="Calcular" onclick="calc()">
+        <table id="itens">
+
+        </table>
+    </div>
+    <script>
+        function calc(){
+            var pv = document.getElementById('valor').value
+            var n = document.getElementById('parce').value
+            var jam = document.getElementById('prc').value
+                jam = jam/100
+            var amtz = pv / n             
+            for(i = 1; i <= n; i++){
+                var juros = pv * jam
+                var parcela = amtz + juros
+                    pv -= amtz    
+                console.log(`| N ${i} | Amortização: R$${amtz},00 | Valor da parcela : R$${parcela},00 | Valor do juros : R$${juros},00 | Saldo devedor R$${pv},00 |`)
+                document.getElementById('itens').innerHTML += `<tr>
+                    <th>N</th>
+                    <th>Valor da parcela</th>
+                    <th>Amortização</th>
+                    <th>Valor do juros</th>
+                    <th>Saldo devedor</th>
+                </tr>
+                <tr>
+                    <td>${i}</td>
+                    <td>R$${parcela},00</td>
+                    <td>R$${amtz},00</td>
+                    <td>R$${juros},00</td>
+                    <td>R$${pv},00</td>
+                </tr>
+                `           
+            } 
+        }
+    </script>
+</body>
+</html>
