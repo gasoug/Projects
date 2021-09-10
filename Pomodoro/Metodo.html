@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Método Pomodoro</title>
+</head>
+<body>
+    <form name="form_main">
+        <div class="clock">
+            <span id="second">00</span>:<span id="millisecond">000</span>
+        </div>
+
+        <br />
+
+        <button type="button" name="start">start</button>
+        <button type="button" name="pause">pause</button>
+        <button type="button" name="reset">reset</button>
+    </form>
+    <script>
+        "use strict"
+        let second = 0
+        let millisecond = 0
+        let cron
+
+document.form_main.start.onclick = () => start()
+document.form_main.pause.onclick = () => pause()
+document.form_main.reset.onclick = () => reset()
+
+function start(){
+    pause()
+    cron = setInterval(() =>{
+        timer()
+    }, 10)
+    }
+    function pause() {
+        clearInterval(cron);
+    }  
+    function reset() {
+        //minute = 0
+        second = 0
+        millisecond = 0  
+
+        document.getElementById('second').innerText = '00';
+        document.getElementById('millisecond').innerText = '000';
+    }
+    
+    function timer() {
+        if ((millisecond += 10) == 1000) {
+          millisecond = 0;
+          second++;
+        }
+        /*if (second == 60) {
+          second = 0;
+          minute++;
+        }*/
+            document.getElementById('seg').innerText = returnData(second)
+            document.getElementById('miliseg').innerText = returnData(millisecond)
+    }
+    function returnData(input) {
+        return input > 10 ? input : `0${input}`
+      }
+    </script>
+</body>
+</html>
