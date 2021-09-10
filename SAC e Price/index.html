@@ -56,7 +56,6 @@
         </table>
     </div>
     <script>
-
         function calc(){
             var pv = document.getElementById('valor').value
             var n = document.getElementById('parce').value
@@ -68,7 +67,9 @@
                 var parcela = amtz + juros
                     pv -= amtz    
                 console.log(`| N ${i} | Amortização: R$${amtz},00 | Valor da parcela : R$${parcela},00 | Valor do juros : R$${juros},00 | Saldo devedor R$${pv},00 |`)
-                document.getElementById('itens').innerHTML += `<tr>
+                document.getElementById('itens').innerHTML +=
+                `
+                <tr>
                     <th>N</th>
                     <th>Valor da parcela</th>
                     <th>Amortização</th>
