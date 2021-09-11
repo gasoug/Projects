@@ -27,6 +27,9 @@
         .valores > input{
             margin: 5px auto;
         }
+        .btn{
+            width: 100px;
+        }
         table, th, td {
             border: 1px solid #000000;
             padding: 2px;
@@ -50,13 +53,12 @@
         <input type="text" placeholder="Valor do financiamento" id="valor" onfocus="reset_val()">
         <input type="text" placeholder="Quantidade de Parcelas" id="parce">
         <input type="text" placeholder="Porcentagem a.m" id="prc">
-        <input type="button" value="Calcular" onclick="calc()">
-        <table id="itens">
-
-        </table>
+        <input type="button" class="btn" value="SAC" onclick="sac()">
+        <input type="button" class="btn" value="Price" onclick="price()">
+        <table id="itens"></table>
     </div>
     <script>
-        function calc(){
+        function sac(){
             var pv = document.getElementById('valor').value
             var n = document.getElementById('parce').value
             var jam = document.getElementById('prc').value
@@ -66,7 +68,7 @@
                 var juros = pv * jam
                 var parcela = amtz + juros
                     pv -= amtz    
-                console.log(`| N ${i} | Amortização: R$${amtz},00 | Valor da parcela : R$${parcela},00 | Valor do juros : R$${juros},00 | Saldo devedor R$${pv},00 |`)
+                console.log(`| N ${i} | Amortização: ${amtz} | Valor da parcela : ${parcela} | Valor do juros : ${juros} | Saldo devedor: ${pv}|`)
                 var tab = document.getElementById('itens').innerHTML +=
                 `
                 <tr>
@@ -78,10 +80,40 @@
                 </tr>
                 <tr>
                     <td>${i}</td>
-                    <td>R$${parcela},00</td>
-                    <td>R$${amtz},00</td>
-                    <td>R$${juros},00</td>
-                    <td>R$${pv},00</td>
+                    <td>${parcela.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</td>
+                    <td>${amtz.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</td>
+                    <td>${juros.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</td>
+                    <td>${pv.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</td>
+                </tr>
+                `           
+            }
+        }
+        function price(){
+            var pv = document.getElementById('valor').value
+            var n = document.getElementById('parce').value
+            var jam = document.getElementById('prc').value
+                jam = jam/100
+            var pmt = pv/((((1 + jam)**n)-1)/(((1 + jam)**n)*jam))          
+            for(i = 1; i <= n; i++){
+                var juros = pv * jam
+                var amtz = pmt - juros
+                    pv -= amtz    
+                console.log(juros.toFixed(2),pv.toFixed(2))
+                var tab = document.getElementById('itens').innerHTML +=
+                `
+                <tr>
+                    <th>N</th>
+                    <th>Valor da parcela</th>
+                    <th>Amortização</th>
+                    <th>Valor do juros</th>
+                    <th>Saldo devedor</th>
+                </tr>
+                <tr>
+                    <td>${i}</td>
+                    <td>${pmt.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</td>
+                    <td>${amtz.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</td>
+                    <td>${juros.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</td>
+                    <td>${pv.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</td>
                 </tr>
                 `           
             }
