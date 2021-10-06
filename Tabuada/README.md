@@ -1,2 +1,2 @@
 ## Tabuada ##
-- Mostra a tabuada de sua escolha;
+- Mostra a tabuada de multiplicação de sua escolha;
