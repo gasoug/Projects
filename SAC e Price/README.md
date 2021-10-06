@@ -1,6 +1,5 @@
 ## Tabela para simular um financiamento ##
-### SAC (sistema de amortização constante) ###
-### Price ###
+### SAC (sistema de amortização constante) ou Price ###
 - Deverá entrar com o valor total, com "." no lugar de "," se houver a necessidade
 - Escolher em seguida a porcentagem e o número de parcelas;
 - Escolher qual tipo de financiamento gostaria de ver a tabela;
