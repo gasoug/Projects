@@ -1,2 +1,2 @@
 ## Tabuada ##
-- Mostra todas as tabuadas até a escolhida;
+- Mostra a tabuada de sua escolha;
